@@ -105,3 +105,36 @@ python ingest.py
 
 ▶️ Run the App
 streamlit run app.py
+
+## 🧪 Sample Queries
+
+- What is Agentic AI?
+- How does Agentic AI differ from traditional AI systems?
+- What role does autonomy play in Agentic AI?
+- How do agentic systems make decisions?
+- What are the key components of an Agentic AI architecture?
+- Is Agentic AI rule-based or learning-based?
+
+
+## 🧠 Architecture Overview
+
+1. **PDF Ingestion**  
+   The Agentic AI eBook is loaded, cleaned, and split into overlapping text chunks.
+
+2. **Embedding Generation**  
+   Each chunk is converted into a vector using Sentence-Transformers (MiniLM).
+
+3. **Vector Storage**  
+   Embeddings are stored locally using FAISS for fast similarity search.
+
+4. **Retrieval (RAG)**  
+   On each user query, relevant chunks are retrieved using semantic similarity and a score threshold.
+
+5. **Generation (LLM)**  
+   Retrieved context is passed to the Groq LLaMA 3.1 model via a prompt that enforces strict grounding.
+
+6. **LangGraph Orchestration**  
+   LangGraph controls the flow between retrieval and generation nodes.
+
+7. **UI Layer**  
+   A Streamlit interface allows users to ask questions, view confidence scores, and inspect retrieved context.
